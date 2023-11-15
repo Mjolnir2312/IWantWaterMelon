@@ -502,7 +502,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ddebe6485b5cd0488b66ad55bdcd674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitsPrefab: {fileID: 4596893612174120874, guid: 6ae0d8c1f4803814ca9f37640894cdac, type: 3}
+  fruitsPrefabs:
+  - {fileID: -3508133499947743769, guid: a06aee293e4fcd248a55c3b489819630, type: 3}
+  - {fileID: 790744098893363607, guid: 6ae0d8c1f4803814ca9f37640894cdac, type: 3}
+  - {fileID: -4568578339337072271, guid: eb16abde56f68bf44903002595463d51, type: 3}
+  - {fileID: -8623514813772647901, guid: 5a59e289622779245a68332feada2150, type: 3}
+  - {fileID: 5060821348319264839, guid: 35e90ee1b085c854ba5cef3570091576, type: 3}
   fruitSpawnLine: {fileID: 1738964661}
   fruitSpawnPos: 4
   enableGizmos: 0
@@ -566,9 +571,54 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1032915125}
+  - {fileID: 1484940864}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1484940863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1484940864}
+  - component: {fileID: 1484940865}
+  m_Layer: 0
+  m_Name: MergeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1484940864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484940863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1447220517}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484940865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484940863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa05e2a44217404291f313add4abb65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1738964659
 GameObject:
   m_ObjectHideFlags: 0

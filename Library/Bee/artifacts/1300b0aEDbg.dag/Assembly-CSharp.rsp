@@ -368,6 +368,7 @@
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Fruit.cs"
 "Assets/Scripts/FruitManager.cs"
+"Assets/Scripts/FruitType.cs"
 "Assets/Scripts/MergeManager.cs"
 -langversion:9.0
 

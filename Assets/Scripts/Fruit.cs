@@ -5,6 +5,8 @@ using System;
 
 public class Fruit : MonoBehaviour
 {
+    [SerializeField] private FruitType fruitType;
+
     public static Action<Fruit> onCollisionWithFruit;
     void Start()
     {
@@ -29,10 +31,17 @@ public class Fruit : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.TryGetComponent(out Fruit fruit))
+        if(collision.collider.TryGetComponent(out Fruit otherFruit))
         {
-            onCollisionWithFruit?.Invoke(this);
-            //Destroy(fruit.gameObject);
+            if (otherFruit.GetFruitType() != fruitType)
+                return;
+            else
+                onCollisionWithFruit?.Invoke(this);
         }
+    }
+
+    public FruitType GetFruitType()
+    {
+        return fruitType;
     }
 }
