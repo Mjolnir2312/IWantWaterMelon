@@ -366,9 +366,9 @@
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/Scripts/Fruit.cs"
 "Assets/Scripts/FruitManager.cs"
-"Assets/Scripts/FruitScript.cs"
-"Assets/Scripts/SpawnFruits.cs"
+"Assets/Scripts/MergeManager.cs"
 -langversion:9.0
 
 /deterministic
