@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FruitManager : MonoBehaviour
 {
-    [SerializeField] private Fruit[] fruitsPrefabs;
+    [SerializeField] private Fruit[] fruitPrefabs;
+    [SerializeField] private Fruit[] spawnableFruits;
+    [SerializeField] private Transform fruitsParent;
     [SerializeField] private LineRenderer fruitSpawnLine;
     private Fruit currentFruit;
 
@@ -13,6 +15,11 @@ public class FruitManager : MonoBehaviour
     private bool isControlling;
 
     [SerializeField] private bool enableGizmos;
+
+    private void Awake()
+    {
+        MergeManager.onMergeProcessed += MergeProcessedCallBack;
+    }
     void Start()
     {
         canControl = true;
@@ -83,8 +90,9 @@ public class FruitManager : MonoBehaviour
     private void SpawnFruit()
     {
         Vector2 spawnPosition = GetSpawnPosition();
+        Fruit fruitToInstantiate = spawnableFruits[Random.Range(0, spawnableFruits.Length)];
 
-        currentFruit = Instantiate(fruitsPrefabs[Random.Range(0, fruitsPrefabs.Length)], spawnPosition, Quaternion.identity);
+        currentFruit = Instantiate(fruitToInstantiate, spawnPosition, Quaternion.identity, fruitsParent);
     }
 
     private Vector2 GetClickedWorldPosition()
@@ -125,6 +133,24 @@ public class FruitManager : MonoBehaviour
         canControl = true;
     }
 
+    private void MergeProcessedCallBack(FruitType fruitType, Vector2 spawnPosition)
+    {
+        for (int i = 0; i < fruitPrefabs.Length; i++)
+        {
+            if (fruitPrefabs[i].GetFruitType() == fruitType)
+            {
+                Debug.Log("Merge");
+                SpawnMergeFruit(fruitPrefabs[i], spawnPosition);
+                break;
+            }
+        }
+    }
+
+    private void SpawnMergeFruit(Fruit fruit, Vector2 spawnPosition)
+    {
+        Fruit fruitInstance = Instantiate(fruit, spawnPosition, Quaternion.identity, fruitsParent);
+        fruitInstance.EnablePhysics();
+    }
 #region UNITY_EDITOR
     private void OnDrawGizmos()
     {
@@ -132,7 +158,7 @@ public class FruitManager : MonoBehaviour
             return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector3(-5, fruitSpawnPos, 0), new Vector3(5, fruitSpawnPos, 0));
+        Gizmos.DrawLine(new Vector3(-5, 3, 0), new Vector3(5, 3, 0));
     }
 #endregion
 }

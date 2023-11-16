@@ -12,5 +12,8 @@ public enum FruitType
    Fruit6,
    Fruit7,
    Fruit8,
-   Fruit9
+   Fruit9,
+   Fruit10,
+   Fruit11,
+   Fruit12
 }

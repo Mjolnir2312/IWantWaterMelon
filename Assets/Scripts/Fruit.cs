@@ -7,7 +7,7 @@ public class Fruit : MonoBehaviour
 {
     [SerializeField] private FruitType fruitType;
 
-    public static Action<Fruit> onCollisionWithFruit;
+    public static Action<Fruit, Fruit> onCollisionWithFruit;
     void Start()
     {
         
@@ -36,7 +36,7 @@ public class Fruit : MonoBehaviour
             if (otherFruit.GetFruitType() != fruitType)
                 return;
             else
-                onCollisionWithFruit?.Invoke(this);
+                onCollisionWithFruit?.Invoke(this, otherFruit);
         }
     }
 
